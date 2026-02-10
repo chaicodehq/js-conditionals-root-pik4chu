@@ -23,4 +23,15 @@
  */
 export function getTrafficAction(color) {
   // Your code here
+  const input_color =  color.toLowerCase();
+ 
+  switch(input_color){
+    case "green": return "GO"
+    case "yellow": return "SLOW DOWN"
+    case "red": return "STOP"
+    case "flashing red": return "STOP AND PROCEED WITH CAUTION"
+    default: return "INVALID SIGNAL"
+  }
+
+ 
 }

@@ -20,8 +20,17 @@
  *
  * @param {number} age - The customer's age
  * @param {boolean} isWeekend - Whether it's a weekend
- * @returns {number} The ticket price, or -1 for invalid input
+ * @returns {number} The ticket price, or -1 for invalid input 
  */
 export function getTicketPrice(age, isWeekend) {
   // Your code here
+  if (typeof age !== "number" || Number.isNaN(age) || age < 0) return -1;
+  if (typeof isWeekend !== "boolean") return -1;
+  
+  const addition = isWeekend ? 3 : 0;
+  if(age <= 12) return 8 + addition;
+  if(age <= 17) return 12 + addition;
+  if(age <= 59) return 15 + addition;
+  return 10 + addition;
+
 }
