@@ -27,4 +27,21 @@
  */
 export function calculateTax(income) {
   // Your code here
+  if(income <= 0) return 0;
+  // isko reverse krna padta tab work krta ... 
+ let bracket = [
+    [70000, 0.30],
+    [30000, 0.20],
+    [10000, 0.10]
+  ];
+
+    let total = 0;
+// noice and clean way to handle it ... 
+    for(let [limit , rate] of bracket){
+      if(income > limit){
+        total += (income - limit )*rate;
+        income = limit
+      }
+    }
+    return total
 }
